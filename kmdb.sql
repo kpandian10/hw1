@@ -122,22 +122,22 @@ CREATE TABLE film (
     year_released TEXT,
     MPAA_rating TEXT,
     studio TEXT
-)
+);
 
 CREATE TABLE actors (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     actor_name TEXT,
     role TEXT,
     film_id 
-)
+);
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
-INSERT INTO film (title, year_released, MPAA_rating, studio) VALUES ('Batman Begins', '2005', 'PG-13', 'Warner Bros.' )
-INSERT INTO film (title, year_released, MPAA_rating, studio) VALUES ('The Dark Knight', '2008', 'PG-13', 'Warner Bros.' )
-INSERT INTO film (title, year_released, MPAA_rating, studio) VALUES ('The Dark Knight Rises', '2013', 'PG-13', 'Warner Bros.' )
+INSERT INTO film (title, year_released, MPAA_rating, studio) VALUES ('Batman Begins', '2005', 'PG-13', 'Warner Bros.' );
+INSERT INTO film (title, year_released, MPAA_rating, studio) VALUES ('The Dark Knight', '2008', 'PG-13', 'Warner Bros.' );
+INSERT INTO film (title, year_released, MPAA_rating, studio) VALUES ('The Dark Knight Rises', '2013', 'PG-13', 'Warner Bros.' );
 
 INSERT INTO actors (actor_name, role, film_id) VALUES ('Christian Bale', 'Bruce Wayne', 1);
 INSERT INTO actors (actor_name, role, film_id) VALUES ('Michael Caine', 'Alfred', 1);
@@ -163,6 +163,8 @@ INSERT INTO actors (actor_name, role, film_id) VALUES ('Anne Hathaway', 'Selina 
 
 -- The SQL statement for the movies output
 -- TODO!
+SELECT title, year_released, MPAA_rating, studio
+FROM film;
 
 -- Prints a header for the cast output
 .print ""
@@ -173,3 +175,6 @@ INSERT INTO actors (actor_name, role, film_id) VALUES ('Anne Hathaway', 'Selina 
 
 -- The SQL statement for the cast output
 -- TODO!
+SELECT film.title, actors.actor_name, actors.role
+FROM film
+INNER JOIN actors ON actors.film_id = film.ID;
