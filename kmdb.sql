@@ -112,13 +112,49 @@
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
-
+DROP TABLE IF EXISTS film;
+DROP TABLE IF EXISTS actors;
 -- Create new tables, according to your domain model
 -- TODO!
+CREATE TABLE film (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    year_released TEXT,
+    MPAA_rating TEXT,
+    studio TEXT
+)
+
+CREATE TABLE actors (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    actor_name TEXT,
+    role TEXT,
+    film_id 
+)
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+
+INSERT INTO film (title, year_released, MPAA_rating, studio) VALUES ('Batman Begins', '2005', 'PG-13', 'Warner Bros.' )
+INSERT INTO film (title, year_released, MPAA_rating, studio) VALUES ('The Dark Knight', '2008', 'PG-13', 'Warner Bros.' )
+INSERT INTO film (title, year_released, MPAA_rating, studio) VALUES ('The Dark Knight Rises', '2013', 'PG-13', 'Warner Bros.' )
+
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Christian Bale', 'Bruce Wayne', 1);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Michael Caine', 'Alfred', 1);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Liam Neeson', 'Ra''s Al Ghul', 1);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Katie Holmes', 'Rachel Dawes', 1);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Gary Oldman', 'Commissioner Gordon', 1);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Christian Bale', 'Bruce Wayne', 2);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Heath Ledger', 'Joker', 2);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Aaron Eckhart', 'Harvey Dent', 2);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Michael Caine', 'Alfred', 2);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Maggie Gyllenhaal', 'Rachel Dawes', 2);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Christian Bale', 'Bruce Wayne', 3);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Gary Oldman', 'Commissioner Gordon', 3);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Tom Hardy', 'Bane', 3);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Joseph Gordon-Levitt', 'John Blake', 3);
+INSERT INTO actors (actor_name, role, film_id) VALUES ('Anne Hathaway', 'Selina Kyle', 3);
+
 
 -- Prints a header for the movies output
 .print "Movies"
